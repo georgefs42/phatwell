@@ -30,13 +30,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     z-index: 10;
 }
 
 .logo {
+    padding-left: 50px;
     height: 50px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -48,19 +46,18 @@
 
 /* Navigation Links */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin-right: 10%;
+    display: flex; /* Enable flexbox for the container */
+    justify-content:center; /* Push the items to the right */
+    align-items: center; /* Vertically center the links */
     margin: 0;
-    padding: 0;
+    padding: 50px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    padding: 8px 100px;
+    padding: 8px 20px;
     transition: background 0.3s, color 0.3s;
     border-radius: 5px;
 }
