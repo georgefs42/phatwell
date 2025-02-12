@@ -1,0 +1,27 @@
+﻿@{
+	Layout = "HomePage.cshtml";
+}
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent
+@{
+    var videoUrl = Model.Value<string>("videoUrl");
+    var videoId = string.Empty;
+
+    // Extract YouTube video ID from the URL
+    var match = Regex.Match(videoUrl, @"(?:youtube\.com\/(?:[^\/]+\/.*\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})");
+    if (match.Success)
+    {
+        videoId = match.Groups[1].Value;
+    }
+}
+
+@if (!string.IsNullOrEmpty(videoId))
+{
+    <div class="youtube-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/@videoId" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+}
+else
+{
+    <p>No valid video URL provided.</p>
+}
